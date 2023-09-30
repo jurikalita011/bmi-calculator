@@ -1,8 +1,13 @@
-import { BMI_FAILURE, BMI_REQUEST, BMI_SUCCESS } from "../actionTypes";
+import {
+  BMI_FAILURE,
+  BMI_REQUEST,
+  GET_BMI_SUCCESS,
+  POST_BMI_SUCCESS,
+} from "../actionTypes";
 const initialState = {
   isLoading: false,
   isError: false,
-  bmi: 0,
+  bmi: [],
 };
 export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -13,7 +18,15 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: false,
       };
     }
-    case BMI_SUCCESS: {
+
+    case BMI_FAILURE: {
+      return {
+        ...state,
+        isLoading: true,
+        isError: true,
+      };
+    }
+    case GET_BMI_SUCCESS: {
       return {
         ...state,
         isLoading: true,
@@ -21,7 +34,7 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: true,
       };
     }
-    case BMI_FAILURE: {
+    case POST_BMI_SUCCESS: {
       return {
         ...state,
         isLoading: true,

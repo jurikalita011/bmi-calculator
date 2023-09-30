@@ -10,9 +10,7 @@ import {
   HStack,
   Heading,
   Input,
-  Stack,
   Text,
-  VStack,
   useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
@@ -55,7 +53,7 @@ export const Signup = () => {
         description: "We've created your account for you.",
         status: "success",
         position: "top",
-        duration: 3000,
+        duration: 2000,
         isClosable: true,
       });
       setTimeout(() => {
@@ -65,7 +63,7 @@ export const Signup = () => {
     }
   }, [registeredUser]);
   return (
-    <Box>
+    <Box margin={"20px auto"}>
       <Center>
         <Card w={"30%"} bg={"#E3F2FD"} variant="outline" borderColor="#d0d7de">
           <CardHeader>

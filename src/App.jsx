@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
-    <Box className="App">
+    <Box className="App" w={"80%"} margin={"auto"} pb={"20px"} bg={"#FAFAFA"}>
       <Navbar />
       <Allroutes />
     </Box>

@@ -10,9 +10,7 @@ import {
   HStack,
   Heading,
   Input,
-  Stack,
   Text,
-  VStack,
   useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
@@ -26,7 +24,7 @@ export const Login = () => {
   const locations = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuth, registeredUsers } = useSelector((store) => store.authReducer);
+  const { isAuth } = useSelector((store) => store.authReducer);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -64,7 +62,7 @@ export const Login = () => {
     }
   }, [isAuth]);
   return (
-    <Box>
+    <Box margin={"20px auto"}>
       <Center>
         <Card w={"30%"} bg={"#E3F2FD"} variant="outline" borderColor="#d0d7de">
           <CardHeader>

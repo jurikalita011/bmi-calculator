@@ -24,9 +24,18 @@ export const UserProfile = () => {
   console.log(isUpdated, "updatedornot");
 
   const [formData, setFormData] = useState({
-    name: loggedInUser && loggedInUser[0] ? loggedInUser[0].name : "",
-    email: loggedInUser && loggedInUser[0] ? loggedInUser[0].email : "",
-    password: loggedInUser && loggedInUser[0] ? loggedInUser[0].password : "",
+    name:
+      loggedInUser && loggedInUser[0]
+        ? loggedInUser[0].name
+        : loggedInUser.name,
+    email:
+      loggedInUser && loggedInUser[0]
+        ? loggedInUser[0].email
+        : loggedInUser.email,
+    password:
+      loggedInUser && loggedInUser[0]
+        ? loggedInUser[0].password
+        : loggedInUser.password,
   });
 
   const handleChange = (e) => {
@@ -48,6 +57,14 @@ export const UserProfile = () => {
       };
 
       dispatch(updateUserProfile(loggedInUser[0].id, updatedUserData));
+    } else {
+      const updatedUserData = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      };
+
+      dispatch(updateUserProfile(loggedInUser.id, updatedUserData));
     }
   };
   useEffect(() => {
@@ -63,9 +80,9 @@ export const UserProfile = () => {
     }
   }, [isUpdated]);
   return (
-    <Box>
+    <Box margin={"20px auto"}>
       <Center>
-        <Card w={"30%"} bg={"#FAFAFA"} variant="outline" borderColor="#d0d7de">
+        <Card w={"30%"} bg={"#E0E0E0"} variant="outline" borderColor="#d0d7de">
           <CardHeader>
             <Heading size="md" color={"#1565C0"}>
               User Profile
